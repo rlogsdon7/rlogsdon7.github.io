@@ -84,34 +84,6 @@
             stencil: true
             });
         };
-
-        // Step 1: Define the function to run
-        function handlePostRequest(data) {
-            console.log("We did it")
-        }
-
-
-        // Step 2: Create an HTTP server
-        const http = require('http');
-        const server = http.createServer();
-
-        // Step 3: Set up a route for HTTP POST requests
-        server.on('request', (req, res) => {
-            if (req.method === 'POST') {
-                // Step 4: Call the function to run
-                handlePostRequest(req.body);
-
-                // Step 5: Send a response to the client
-                res.statusCode = 200;
-                res.setHeader('Content-Type', 'text/plain');
-                res.end('POST request received\n');
-            }
-        });
-
-        // Step 6: Listen for incoming requests
-        server.listen(80, () => {
-            console.log('Server running at http://testplaygroundprodigypd.w3spaces.com/');
-        });
     
         var createScene = async function () {
 
