@@ -21,6 +21,17 @@
         <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
         <script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
         <script src ="scripts.js"></script>
+        <script>
+            // Define the function to handle incoming HTTP requests
+            function handleRequest(request) {
+                if (request.method === 'POST') {
+                    console.log('Received a POST request');
+                }
+            }
+
+            // Attach the handleRequest function to the window object
+            window.handleRequest = handleRequest;
+        </script>
         <style>
             html, body {
                 overflow: hidden;
@@ -40,6 +51,9 @@
 <body>
     <canvas id="renderCanvas"></canvas>
     <script>
+            document.addEventListener('fetch', event => {
+                event.respondWith(handleRequest(event.request));
+            });
         var client;
         var asset1 = "necker-vhigh.glb"; //Asset at (x,y) = (-5,0)
         var asset2 ="tervis-blue-yellow.glb"; //Asset at (x,y) = (-5,5)
